@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramadan Companion</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="stars-bg"></div>
+  <div class="skyline-bg"></div>
+
+  <!-- ÉCRAN D'ACCUEIL -->
+  <section class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-card">
+      <div class="welcome-moon">🌙</div>
+      <h1 class="welcome-title">Joyeux Anniversaire ! 🎉</h1>
+      <p class="welcome-subtitle">Un cadeau spécial pour un Ramadan béni</p>
+      
+      <div class="welcome-divider">✦</div>
+      
+      <div class="welcome-text">
+        <p>Bienvenue dans ton <strong>Ramadan Companion</strong>.</p>
+        <p>J'ai conçu cette application spécialement pour toi afin de t'accompagner tout au long de ce mois sacré.</p>
+      </div>
+
+      <button class="start-btn" id="startBtn">Commencer l'aventure ✨</button>
+    </div>
+  </section>
+
+  <!-- CONTENU PRINCIPAL -->
+  <div class="app-container hidden" id="appContainer">
+    <header>
+      <div class="moon-icon">🌙</div>
+      <h1>Ramadan</h1>
+      <p class="subtitle">30 Jours • 30 Défis</p>
+      <p class="tagline">Un pas chaque jour vers une meilleure version de toi</p>
+      <div class="star-divider">✦</div>
+      
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <span class="progress-text" id="progressText">0 / 30 accomplis</span>
+    </header>
+
+    <main>
+      <div class="grid-container" id="cardsGrid"></div>
+    </main>
+  </div>
+
+  <!-- MODALE UNIQUE (Basée sur ton design d'origine) -->
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-btn" id="closeBtn">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
