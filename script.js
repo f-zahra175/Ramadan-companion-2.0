@@ -1,4 +1,4 @@
-const START_DATE = "2026-11-03"; 
+const START_DATE = "2026-08-03"; 
 const TOTAL_DAYS = 30;
 
 let completedDays = JSON.parse(localStorage.getItem('ramadan_completed_days')) || [];
@@ -328,3 +328,43 @@ function setupEventListeners() {
 }
 
 document.addEventListener('DOMContentLoaded', initApp);
+
+document.addEventListener('DOMContentLoaded', () => {
+    checkBirthdayTrigger();
+});
+
+function checkBirthdayTrigger() {
+    const today = new Date();
+    /*const month = today.getMonth() + 1; // Les mois commencent à 0 en JS (0 = janvier, 1 = février)
+    const day = today.getDate();*/
+
+    // Date cible : 12 Février (Mois 2, Jour 12)
+    const month = 11; // 11 pour novembre
+    const day = 7;    // 7 pour aujourd'hui
+    const isBirthday = (month === 11 && day === 7); // ou (month === 11 && day === 7) pour tester
+    
+    // Vérifier si la surprise a déjà été montrée aujourd'hui
+    const hasBeenShown = localStorage.getItem('birthdayShown_2026');
+
+    if (isBirthday && !hasBeenShown) {
+        showBirthdayModal();
+    }
+}
+
+function showBirthdayModal() {
+    const modal = document.getElementById('birthday-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        
+        // Marquer comme affiché pour ne plus réapparaître
+        localStorage.setItem('birthdayShown_2026', 'true');
+        
+        // Gestion de la fermeture
+        const closeBtn = document.getElementById('close-birthday');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+        }
+    }
+}
